@@ -1,0 +1,1 @@
+export class c{static a(a){let b;for(let i=0;i<6;i++){let f=[];a.forEach(a=>{f.push(a.d(i))});const d=(f.reduce((a,b)=>a+b)/4);const e=f.every(a=>a);if(e&&(d===1||d===2)){b=d;};};if(b)return b;return 0;};};

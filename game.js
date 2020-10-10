@@ -1,6 +1,6 @@
 import { a } from "./a.js";
 import { b } from './b.js';
-import { RowWinInspector } from './row-win-inspector.js';
+import { c } from './c.js';
 import { DiagonalWinInspector } from './diagonal-win-inspector.js'
 export class Game {
     constructor(playerOneName, playerTwoName){
@@ -21,7 +21,7 @@ export class Game {
     checkForRowWin() {
         if (this.winnerNumber === 0) {
             for (let i = 0; i < 4; i++) {
-            let columnGroupIsWin = RowWinInspector.inspect(this.columns.slice(i,i+4));
+            let columnGroupIsWin = c.a(this.columns.slice(i,i+4));
             if (columnGroupIsWin) {this.winnerNumber = columnGroupIsWin; break;}
             }
         }
