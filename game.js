@@ -1,4 +1,4 @@
-import { Column } from "./column.js";
+import { a } from "./a.js";
 import { ColumnWinInspector } from './column-win-inspector.js';
 import { RowWinInspector } from './row-win-inspector.js';
 import { DiagonalWinInspector } from './diagonal-win-inspector.js'
@@ -9,13 +9,13 @@ export class Game {
         this.currentPlayer = 1;
         this.winnerNumber = 0;
         this.columns = [
-                    new Column(),
-                    new Column(),
-                    new Column(),
-                    new Column(),
-                    new Column(),
-                    new Column(),
-                    new Column(),
+                    new a(),
+                    new a(),
+                    new a(),
+                    new a(),
+                    new a(),
+                    new a(),
+                    new a(),
         ]
     }
     checkForRowWin() {
@@ -41,7 +41,7 @@ export class Game {
         });
     }
     playInColumn(columnIdx) {
-        this.columns[columnIdx].add(this.currentPlayer);
+        this.columns[columnIdx].c(this.currentPlayer);
         if (this.currentPlayer === 1) {this.currentPlayer = 2;}
         else if (this.currentPlayer === 2) {this.currentPlayer = 1;}
         this.checkForTie();
@@ -56,13 +56,13 @@ export class Game {
         return `${this.playerOneName} vs ${this.playerTwoName}`;
     }
     getTokenAt(rowIdx, columnIdx){
-       return this.columns[columnIdx].getTokenAt(rowIdx);
+       return this.columns[columnIdx].d(rowIdx);
     }
     isColumnFull(columnIdx){
         if (this.winnerNumber === 1 || this.winnerNumber === 2) return true;
-        return this.columns[columnIdx].isFull();
+        return this.columns[columnIdx].b();
     }
     checkForTie() {
-        if (this.columns.every(column => column.isFull())) return this.winnerNumber = 3;
+        if (this.columns.every(column => column.b())) return this.winnerNumber = 3;
     }
 }

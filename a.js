@@ -1,0 +1,1 @@
+export class a{constructor(){this.a=[null,null,null,null,null,null];};b(){if(this.a[0]){return true;}else{return false;}};c(x){for(let i=this.a.length-1;i>=0;i--){if(!this.a[i]){this.a[i]=x;break;};};};d(x){return this.a[x];};};
