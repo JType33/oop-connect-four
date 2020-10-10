@@ -1,5 +1,5 @@
 import { a } from "./a.js";
-import { ColumnWinInspector } from './column-win-inspector.js';
+import { b } from './b.js';
 import { RowWinInspector } from './row-win-inspector.js';
 import { DiagonalWinInspector } from './diagonal-win-inspector.js'
 export class Game {
@@ -36,7 +36,7 @@ export class Game {
     }
     checkForColumnWin() {
         this.columns.forEach(column => {
-            const winNumber = ColumnWinInspector.inspect(column);
+            const winNumber = b.a(column);
             if (winNumber === 1 || winNumber === 2) return this.winnerNumber = winNumber;
         });
     }
