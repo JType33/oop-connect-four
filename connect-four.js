@@ -1,5 +1,4 @@
-import { Game } from './game.js';
-//import { Column } from './column.js';
+import { e } from './e.js';
 let game;
 const gameName = document.getElementById('game-name');
 function updateUI(){
@@ -8,10 +7,10 @@ function updateUI(){
         board.classList.add('is-invisible');
     }else{
         board.classList.remove('is-invisible');
-        gameName.innerHTML = game.getName();
+        gameName.innerHTML = game.j();
         for(let columnIdx = 0; columnIdx <= 6; columnIdx++){
 
-            if(game.isColumnFull(columnIdx)){
+            if(game.l(columnIdx)){
                 document.getElementById(`column-${columnIdx}`).classList.add('full');
             }else{
                 document.getElementById(`column-${columnIdx}`).classList.remove('full');
@@ -22,7 +21,7 @@ function updateUI(){
         for(let columnIdx = 0; columnIdx <= 6; columnIdx++){
             const square = document.getElementById(`square-${rowIdx}-${columnIdx}`);
             square.innerHTML = '';
-            const playerNumber = game.getTokenAt(rowIdx,columnIdx);
+            const playerNumber = game.k(rowIdx,columnIdx);
             if(playerNumber === 1){
                 const tokenDiv = document.createElement('div');
                 tokenDiv.classList.add('black', 'token');
@@ -35,7 +34,7 @@ function updateUI(){
         }
     }
     const clickTargets = document.getElementById('click-targets');
-    const currentPlayer = game.currentPlayer;
+    const currentPlayer = game.c;
     if (currentPlayer === 1) {
         clickTargets.classList.add('black');
         clickTargets.classList.remove('red');
@@ -61,7 +60,7 @@ window.addEventListener('DOMContentLoaded', event => {
     })
     newGame.addEventListener('click', event =>{
 
-        game = new Game(playerOne.value, playerTwo.value);
+        game = new e(playerOne.value, playerTwo.value);
         updateUI();
     })
     const clickTargets = document.getElementById('click-targets');
@@ -69,21 +68,10 @@ window.addEventListener('DOMContentLoaded', event => {
         const targetId = event.target.id;
         const columnIdx = Number.parseInt(targetId.split('column-').join(''));
 
-        if(game.isColumnFull(columnIdx)) return;
+        if(game.l(columnIdx)) return;
 
         if(!targetId.startsWith('column-')) return;
-        game.playInColumn(columnIdx);
+        game.i(columnIdx);
         updateUI();
     });
-    // let playerColor;
-    // if (!(game.currentPlayer% 2)) {
-    //     playerColor = 'black';
-    // } else {
-    //     playerColor = 'red';
-    // }
-    // document.querySelectorAll('.click-target')
-    // .forEach(target => {
-    //     console.log(target.id)
-    //     target.classList.add(playerColor);
-    // });
 });

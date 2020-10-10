@@ -1,0 +1,1 @@
+export class d{static a(a){let b=[];let c=[];for(let i=0;i<3;i++){a.forEach((a,e)=>{b.push(a.d(i+e));c.push(a.d(i+(3-e)));});const e=(b.every((a,b,c)=>a===c[0]))&&b.every(a=>a);const f=(c.every((a,b,c)=>a===c[0]))&&c.every(a=>a);if(e)return b[0];if(f)return c[0];b=[];c=[];};return 0;};};
